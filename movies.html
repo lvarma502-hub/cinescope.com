@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieVerse - Movies</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/movies.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>MovieVerse</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="movies.html">Movies</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="search-section">
+            <input type="text" id="search-bar" placeholder="Search movies by title...">
+        </section>
+        <section class="filters">
+            <div class="filter-chips">
+                <button class="chip active" data-filter="all">All</button>
+                <button class="chip" data-filter="genre-Sci-Fi">Sci-Fi</button>
+                <button class="chip" data-filter="genre-Action">Action</button>
+                <button class="chip" data-filter="genre-Crime">Crime</button>
+                <button class="chip" data-filter="genre-Drama">Drama</button>
+                <button class="chip" data-filter="genre-Romance">Romance</button>
+                <button class="chip" data-filter="genre-Fantasy">Fantasy</button>
+                <button class="chip" data-filter="year-1990s">1990s</button>
+                <button class="chip" data-filter="year-2000s">2000s</button>
+                <button class="chip" data-filter="year-2010s">2010s</button>
+            </div>
+        </section>
+        <!-- Google AdSense Banner Placeholder -->
+        <!-- <div class="adsense-banner">Ad Banner Here</div> -->
+        <section class="movies-grid" id="movies-container">
+            <!-- Movies will be loaded here -->
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 MovieVerse. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/movies.js"></script>
+</body>
+</html>

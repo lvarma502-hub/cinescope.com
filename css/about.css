@@ -1,0 +1,26 @@
+/* About Page Styles */
+
+.about-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-section h2 {
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.about-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 1rem;
+    }
+}

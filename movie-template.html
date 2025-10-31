@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!-- EDIT: Movie Title --> Inception (2010) - CardCraft Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+            line-height: 1.6;
+        }
+        /* Navbar */
+        nav {
+            background-color: #0d0d0d;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f6c90e;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f6c90e;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        nav .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav .nav-links a:hover {
+            color: #f6c90e;
+        }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(13,13,13,0.9), rgba(13,13,13,0.3));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #f6c90e;
+            margin-bottom: 5px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        /* AdSense */
+        .adsense {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            margin: 20px 0;
+        }
+        /* Movie Details */
+        .movie-details {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .poster {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+        .details {
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+        }
+        .details h2 {
+            color: #f6c90e;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        .details p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        .details .highlight {
+            color: #f6c90e;
+            font-weight: 600;
+        }
+        /* Storyline */
+        .storyline {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in;
+        }
+        .storyline h2 {
+            color: #f6c90e;
+            margin-bottom: 20px;
+        }
+        /* Cast */
+        .cast {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cast h2 {
+            text-align: center;
+            color: #f6c90e;
+            margin-bottom: 30px;
+        }
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .actor-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .actor-card:hover {
+            transform: translateY(-5px);
+        }
+        .actor-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #0d0d0d;
+        }
+        /* Trailer */
+        .trailer {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .trailer h2 {
+            color: #f6c90e;
+            margin-bottom: 20px;
+        }
+        .trailer iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+            border-radius: 10px;
+        }
+        /* Footer */
+        footer {
+            background-color: #0d0d0d;
+            color: #f6c90e;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #f6c90e;
+        }
+        footer a {
+            color: #f6c90e;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .movie-details {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .cast-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">🎬 CardCraft Movies</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- EDIT: Change background-image URL to movie poster -->
+    <section class="hero" style="background-image: url('https://via.placeholder.com/1200x600/000000/ffffff?text=Inception+Poster');">
+        <div class="hero-content">
+            <!-- EDIT: Change movie title and year -->
+            <h1>Inception (2010)</h1>
+            <p>Your mind is the scene of the crime.</p>
+        </div>
+    </section>
+
+    <!-- AdSense #1 -->
+    <div class="adsense">
+        <!-- Google AdSense Placeholder: 728x90 Banner Ad -->
+        [728x90 Banner Ad Placeholder]
+    </div>
+
+    <!-- Movie Details -->
+    <section class="movie-details">
+        <!-- EDIT: Change poster src -->
+        <img src="https://via.placeholder.com/300x450/000000/ffffff?text=Inception" alt="Movie Poster" class="poster">
+        <div class="details">
+            <!-- EDIT: Change all details below -->
+            <h2>Inception</h2>
+            <p><span class="highlight">IMDb Rating:</span> 8.8 ⭐</p>
+            <p><span class="highlight">Genre:</span> Sci-Fi, Thriller</p>
+            <p><span class="highlight">Director:</span> Christopher Nolan</p>
+            <p><span class="highlight">Duration:</span> 2h 28m</p>
+            <p><span class="highlight">Language:</span> English</p>
+            <p><span class="highlight">Release Date:</span> July 16, 2010</p>
+        </div>
+    </section>
+
+    <!-- Storyline -->
+    <section class="storyline">
+        <h2>📖 Storyline</h2>
+        <!-- EDIT: Change storyline text -->
+        <p>A skilled thief who steals secrets through the use of dream-sharing technology is given a chance at redemption if he can successfully perform inception — planting an idea into someone's subconscious. The mission seems impossible, but Cobb and his team must navigate through layers of dreams to achieve their goal.</p>
+    </section>
+
+    <!-- AdSense #2 -->
+    <div class="adsense">
+        <!-- Google AdSense Placeholder: 336x280 Rectangle Ad -->
+        [336x280 Rectangle Ad Placeholder]
+    </div>
+
+    <!-- Cast -->
+    <section class="cast">
+        <h2>🎭 Cast</h2>
+        <div class="cast-grid">
+            <!-- EDIT: Change actor names and roles -->
+            <div class="actor-card">
+                <div class="actor-img">LD</div>
+                <p>Leonardo DiCaprio as Dom Cobb</p>
+            </div>
+            <div class="actor-card">
+                <div class="actor-img">JG</div>
+                <p>Joseph Gordon-Levitt as Arthur</p>
+            </div>
+            <div class="actor-card">
+                <div class="actor-img">EP</div>
+                <p>Ellen Page as Ariadne</p>
+            </div>
+            <div class="actor-card">
+                <div class="actor-img">TH</div>
+                <p>Tom Hardy as Eames</p>
+            </div>
+            <div class="actor-card">
+                <div class="actor-img">MC</div>
+                <p>Marion Cotillard as Mal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trailer -->
+    <section class="trailer">
+        <h2>🎬 Watch Trailer</h2>
+        <!-- EDIT: Change YouTube embed src -->
+        <iframe src="https://www.youtube.com/embed/YoHD9XEInc0" allowfullscreen></iframe>
+    </section>
+
+    <!-- AdSense #3 -->
+    <div class="adsense">
+        <!-- Google AdSense Placeholder: 728x90 Banner Ad -->
+        [728x90 Banner Ad Placeholder]
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CardCraft Movies</p>
+        <a href="index.html">Home</a> | <a href="movies.html">Movies</a> | <a href="contact.html">Contact</a>
+    </footer>
+</body>
+</html>
+
+<!-- 
+AI USAGE EXAMPLE:
+To create a new movie page:
+1. Copy this file and rename it (e.g., oppenheimer.html)
+2. Edit the <!-- EDIT: --> comments to update movie-specific content (title, poster, details, storyline, cast, trailer)
+3. Add a link from the homepage movie card to this new page
+4. Deploy and test responsiveness
+-->

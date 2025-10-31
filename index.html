@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineScope - AI Movie Info Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Top Ad -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3562233739979164" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🎬 CineScope</div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#trending">Trending</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Movies with AI</h1>
+            <p>Search for any movie and get instant details powered by advanced AI</p>
+            <div class="search-container">
+                <form id="searchForm" class="search-form">
+                    <input type="text" id="movieSearch" placeholder="Enter movie name (e.g., Inception, The Matrix)" required>
+                    <button type="submit" class="search-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 21L16.5 16.5M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Search
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- Search Results -->
+    <section id="searchResults" class="search-results" style="display: none;">
+        <div class="container">
+            <div id="movieResult" class="movie-result">
+                <!-- Movie card will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Movies -->
+    <section id="trending" class="trending">
+        <div class="container">
+            <h2>🔥 Trending Now</h2>
+            <div id="trendingMovies" class="movies-grid">
+                <!-- Trending movies will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About CineScope</h2>
+            <p>CineScope is your ultimate destination for movie information. Using advanced AI and the OMDb database, we provide instant access to comprehensive movie details, ratings, cast information, and more. Discover your next favorite film with our intelligent search and curated trending lists.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>lvarma502@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📺 YouTube</a>
+                        <a href="#" class="social-link">📷 Instagram</a>
+                        <a href="#" class="social-link">🐦 Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CineScope</h3>
+                    <p>Your AI-powered movie discovery platform</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#trending">Trending</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="./privacy.html">Privacy Policy</a></li>
+                        <li><a href="./terms.html">Terms of Service</a></li>
+
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Ad -->
+            <div class="ad-space">Advertisement 728x90</div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CineScope. All rights reserved. Powered by OMDb API</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="loading-modal" style="display: none;">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Loading movie data...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

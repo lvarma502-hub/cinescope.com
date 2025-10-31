@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CardCraft Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">🎬 CardCraft Movies</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <h1>📊 Movie Analytics Dashboard</h1>
+        <p>Real-time insights into your movie collection</p>
+        <div class="last-updated">Last updated: <span id="lastUpdated"></span></div>
+    </header>
+
+    <!-- Stats Cards -->
+    <section class="stats-grid">
+        <div class="stat-card">
+            <h3>Total Movies</h3>
+            <div class="stat-number" id="totalMovies">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>Total Visitors</h3>
+            <div class="stat-number" id="totalVisitors">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>AdSense Earnings</h3>
+            <div class="stat-number" id="adsenseEarnings">$0.00</div>
+        </div>
+        <div class="stat-card">
+            <h3>Daily Views</h3>
+            <div class="stat-number" id="dailyViews">0</div>
+        </div>
+    </section>
+
+    <!-- Charts and Lists -->
+    <section class="dashboard-content">
+        <div class="chart-container">
+            <h2>📈 Daily Views (Last 7 Days)</h2>
+            <canvas id="viewsChart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="lists-container">
+            <div class="list-section">
+                <h2>🔥 Most Viewed Movies</h2>
+                <ul id="mostViewedList"></ul>
+            </div>
+
+            <div class="list-section">
+                <h2>🆕 Recently Added Movies</h2>
+                <ul id="recentMoviesList"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CardCraft Movies</p>
+        <a href="index.html">Home</a> | <a href="movies.html">Movies</a> | <a href="contact.html">Contact</a>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

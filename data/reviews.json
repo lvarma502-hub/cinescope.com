@@ -1,0 +1,50 @@
+[
+    {
+        "movie": "Inception",
+        "reviewer": "John Doe",
+        "rating": 9,
+        "comment": "Mind-bending masterpiece! Nolan's direction is flawless, and the cast delivers outstanding performances. The plot twists keep you on the edge of your seat."
+    },
+    {
+        "movie": "The Dark Knight",
+        "reviewer": "Jane Smith",
+        "rating": 10,
+        "comment": "Heath Ledger's Joker is iconic. This film sets the standard for superhero movies. Action-packed and thought-provoking."
+    },
+    {
+        "movie": "Pulp Fiction",
+        "reviewer": "Bob Johnson",
+        "rating": 9,
+        "comment": "Quentin Tarantino's nonlinear storytelling is genius. The dialogue is sharp, and the performances are unforgettable."
+    },
+    {
+        "movie": "The Shawshank Redemption",
+        "reviewer": "Alice Brown",
+        "rating": 10,
+        "comment": "A timeless story of hope and friendship. Morgan Freeman and Tim Robbins give career-defining performances."
+    },
+    {
+        "movie": "Forrest Gump",
+        "reviewer": "Charlie Wilson",
+        "rating": 8,
+        "comment": "Tom Hanks is brilliant as the simple-minded man who unwittingly influences major historical events. Heartwarming and inspiring."
+    },
+    {
+        "movie": "The Matrix",
+        "reviewer": "Diana Prince",
+        "rating": 9,
+        "comment": "Revolutionary sci-fi action. The special effects were groundbreaking for its time, and the philosophy is intriguing."
+    },
+    {
+        "movie": "Titanic",
+        "reviewer": "Eve Adams",
+        "rating": 7,
+        "comment": "Epic romance with stunning visuals. The love story is touching, though the runtime is quite long."
+    },
+    {
+        "movie": "Avatar",
+        "reviewer": "Frank Miller",
+        "rating": 8,
+        "comment": "Visually stunning world-building. The 3D effects are immersive, and the environmental message is important."
+    }
+]

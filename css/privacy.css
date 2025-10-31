@@ -1,0 +1,32 @@
+/* Privacy Page Styles */
+
+.privacy-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.privacy-section h2 {
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.privacy-section h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.privacy-section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .privacy-section {
+        padding: 1rem;
+    }
+}

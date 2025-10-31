@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardCraft Movies - Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+            line-height: 1.6;
+        }
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #0d0d0d;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f6c90e;
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f6c90e;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        nav .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav .nav-links a:hover {
+            color: #f6c90e;
+        }
+        nav .search {
+            display: flex;
+            align-items: center;
+        }
+        nav .search input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+            outline: none;
+        }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #f6c90e;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .hero .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #f6c90e;
+            color: #0d0d0d;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .hero .btn:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        }
+        /* AdSense */
+        .adsense {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            margin: 20px 0;
+        }
+        /* Trending Movies */
+        .trending {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .trending h2 {
+            text-align: center;
+            color: #f6c90e;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .movie-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(246, 201, 14, 0.3);
+        }
+        .movie-card .poster {
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s;
+        }
+        .movie-card:hover .poster {
+            transform: scale(1.1);
+        }
+        .movie-card .watermark {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #f6c90e;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        .movie-card .content {
+            padding: 15px;
+        }
+        .movie-card h3 {
+            color: #f6c90e;
+            margin-bottom: 10px;
+        }
+        .movie-card .rating {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .movie-card .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #f6c90e;
+            color: #0d0d0d;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .movie-card .btn:hover {
+            background-color: #e6b800;
+        }
+        #loading {
+            text-align: center;
+            padding: 40px;
+            color: #f6c90e;
+            font-size: 1.2rem;
+        }
+        /* About Section */
+        .about {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .about p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+            color: #f6c90e;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        footer .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        footer h3 {
+            margin-bottom: 15px;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer ul li {
+            margin-bottom: 10px;
+        }
+        footer a {
+            color: #f6c90e;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        footer .social-icons a {
+            font-size: 1.5rem;
+        }
+        footer .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav .nav-links {
+                order: 2;
+            }
+            nav .search {
+                order: 3;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .movies-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            footer .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">🎬 CardCraft Movies</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Movies</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search movies...">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('https://via.placeholder.com/1200x700/000000/ffffff?text=Dune+Part+Two+Poster');">
+        <!-- AI Image Prompt: cinematic desert poster, sci-fi theme, golden dust, hero in cloak, 4K -->
+        <div class="hero-content">
+            <h1>Dune: Part Two (2024)</h1>
+            <p>Destiny Awaits in the Sands of Arrakis.</p>
+            <a href="#" class="btn">Explore Movie</a>
+        </div>
+    </section>
+
+    <!-- AdSense #1 -->
+    <div class="adsense">
+        <!-- Google AdSense Placeholder: 728x90 Banner Ad -->
+        [728x90 Banner Ad Placeholder]
+    </div>
+
+    <!-- Trending Movies -->
+    <section class="trending">
+        <h2>🔥 Trending Now</h2>
+        <div id="loading">Loading movies...</div>
+        <div id="movie-grid" class="movies-grid">
+            <!-- Movies will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <p>CardCraft Movies is your source for detailed movie insights — cast, storylines, trailers, and ratings, all in one elegant place.</p>
+    </section>
+
+    <!-- AdSense #3 -->
+    <div class="adsense">
+        <!-- Google AdSense Placeholder: 728x90 Banner Ad -->
+        [728x90 Banner Ad Placeholder]
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#">📺 YouTube</a>
+                    <a href="#">📷 Instagram</a>
+                    <a href="#">🐦 Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 CardCraft Movies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/movie-loader.js"></script>
+</body>
+</html>

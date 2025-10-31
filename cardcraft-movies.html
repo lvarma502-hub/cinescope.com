@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardCraft Movies - Movie Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #0d0d0d;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #f6c90e;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #f6c90e;
+            margin-bottom: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f6c90e;
+        }
+        .search-bar {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background-color: #1a1a1a;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+        }
+        .search-bar input::placeholder {
+            color: #ccc;
+        }
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .movie-card {
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(246, 201, 14, 0.3);
+        }
+        .poster {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+        }
+        .watermark {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #f6c90e;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f6c90e;
+            margin-bottom: 10px;
+        }
+        .genre, .rating {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .genre {
+            color: #ccc;
+        }
+        .rating {
+            color: #ffd700;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #f6c90e;
+            color: #0d0d0d;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #e6b800;
+        }
+        .adsense-section {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #1a1a1a;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #111;
+            color: #f6c90e;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .movies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CardCraft Movies</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Movies</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search movies by title...">
+    </div>
+
+    <div class="movies-grid" id="movies-grid">
+        <!-- Movie 1 -->
+        <div class="movie-card" data-title="Inception">
+            <div class="poster" style="background-image: url('https://via.placeholder.com/250x350/000000/ffffff?text=Inception');">
+                <!-- AI Image Prompt: cinematic poster of Inception, Leonardo DiCaprio in dream world, ultra realistic -->
+                <div class="watermark">CardCraft Movies</div>
+            </div>
+            <div class="card-content">
+                <div class="title">Inception</div>
+                <div class="genre">Sci-Fi, Action, Thriller</div>
+                <div class="rating">IMDb: 8.8</div>
+                <a href="movies/inception.html" class="btn">View Details</a>
+            </div>
+        </div>
+
+        <!-- Movie 2 -->
+        <div class="movie-card" data-title="Avatar">
+            <div class="poster" style="background-image: url('https://via.placeholder.com/250x350/000000/ffffff?text=Avatar');">
+                <!-- AI Image Prompt: cinematic poster of Avatar, blue aliens on Pandora, ultra realistic -->
+                <div class="watermark">CardCraft Movies</div>
+            </div>
+            <div class="card-content">
+                <div class="title">Avatar</div>
+                <div class="genre">Sci-Fi, Adventure</div>
+                <div class="rating">IMDb: 7.8</div>
+                <a href="movies/avatar.html" class="btn">View Details</a>
+            </div>
+        </div>
+
+        <!-- Movie 3 -->
+        <div class="movie-card" data-title="Pushpa 2">
+            <div class="poster" style="background-image: url('https://via.placeholder.com/250x350/000000/ffffff?text=Pushpa+2');">
+                <!-- AI Image Prompt: cinematic poster of Pushpa 2, Allu Arjun as smuggler, ultra realistic -->
+                <div class="watermark">CardCraft Movies</div>
+            </div>
+            <div class="card-content">
+                <div class="title">Pushpa 2</div>
+                <div class="genre">Action, Drama</div>
+                <div class="rating">IMDb: 6.1</div>
+                <a href="movies/pushpa2.html" class="btn">View Details</a>
+            </div>
+        </div>
+
+        <!-- Movie 4 -->
+        <div class="movie-card" data-title="Dune 2">
+            <div class="poster" style="background-image: url('https://via.placeholder.com/250x350/000000/ffffff?text=Dune+2');">
+                <!-- AI Image Prompt: cinematic poster of Dune 2, Timothée Chalamet on desert planet, ultra realistic -->
+                <div class="watermark">CardCraft Movies</div>
+            </div>
+            <div class="card-content">
+                <div class="title">Dune 2</div>
+                <div class="genre">Sci-Fi, Adventure</div>
+                <div class="rating">IMDb: 8.5</div>
+                <a href="movies/dune2.html" class="btn">View Details</a>
+            </div>
+        </div>
+
+        <!-- Movie 5 -->
+        <div class="movie-card" data-title="Joker">
+            <div class="poster" style="background-image: url('https://via.placeholder.com/250x350/000000/ffffff?text=Joker');">
+                <!-- AI Image Prompt: cinematic poster of Joker, Joaquin Phoenix as clown, ultra realistic -->
+                <div class="watermark">CardCraft Movies</div>
+            </div>
+            <div class="card-content">
+                <div class="title">Joker</div>
+                <div class="genre">Crime, Drama, Thriller</div>
+                <div class="rating">IMDb: 8.4</div>
+                <a href="movies/joker.html" class="btn">View Details</a>
+            </div>
+        </div>
+
+        <!-- Movie 6 -->
+        <div class="movie-card" data-title="Oppenheimer">
+            <div class="poster" style="background-image: url('https://via.placeholder.com/250x350/000000/ffffff?text=Oppenheimer');">
+                <!-- AI Image Prompt: cinematic poster of Oppenheimer, Cillian Murphy as scientist, ultra realistic -->
+                <div class="watermark">CardCraft Movies</div>
+            </div>
+            <div class="card-content">
+                <div class="title">Oppenheimer</div>
+                <div class="genre">Biography, Drama, History</div>
+                <div class="rating">IMDb: 8.3</div>
+                <a href="movies/oppenheimer.html" class="btn">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AdSense Section after 6 movies -->
+    <div class="adsense-section">
+        <!-- Google AdSense Placeholder: 728x90 Banner Ad -->
+        [728x90 Banner Ad Placeholder]
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CardCraft Movies</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('search');
+        const movieCards = document.querySelectorAll('.movie-card');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            movieCards.forEach(card => {
+                const title = card.dataset.title.toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

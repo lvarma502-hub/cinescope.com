@@ -1,0 +1,48 @@
+name: Generate Movie Page
+
+on:
+  workflow_dispatch:
+    inputs:
+      movie_name:
+        description: 'Movie name to generate page for'
+        required: true
+        type: string
+
+jobs:
+  generate-movie:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.ACTIONS_COMMIT_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install node-fetch
+
+    - name: Generate movie page
+      run: node scripts/generate-movie.js
+      env:
+        OMDB_API_KEY: ${{ secrets.OMDB_API_KEY }}
+        MOVIE_NAME: ${{ inputs.movie_name }}
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Commit and push changes
+      run: |
+        git add .
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Add movie: ${{ inputs.movie_name }} (auto-generated)"
+          git push
+        fi
