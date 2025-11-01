@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and development files
+Disallow: /admin.html
+Disallow: /dashboard.html
+Disallow: /generate.js
+Disallow: /scripts/
+Disallow: /.github/
+
+# Allow all major content
+Allow: /index.html
+Allow: /movies.html
+Allow: /reviews.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /movie.html
+Allow: /movies/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://cinescope-coral-six.vercel.app/sitemap.xml
