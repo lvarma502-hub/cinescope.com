@@ -23,4 +23,5 @@ Allow: /movies/
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://cinescope-coral-six.vercel.app/sitemap.xml
+Sitemap: https://cinescope.is-a.dev/sitemap.xml
+
